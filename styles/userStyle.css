@@ -101,6 +101,7 @@ li {
 
 .repo h3 {
 	margin-bottom: 10px;
+	font-size: 1.25rem;
 }
 
 .repo p {
@@ -162,6 +163,6 @@ select#perPage {
 }
 @media (max-width: 767px) {
 	#avatar {
-		max-width: 90%;
+		max-width: 100px;
 	}
 }
