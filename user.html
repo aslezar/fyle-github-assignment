@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Details</title>
+		<link rel="stylesheet" href="styles/userStyle.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="user-profile">
+				<div class="user-info">
+					<img id="avatar" alt="User Avatar" />
+					<div class="user-name">
+						<p id="name"></p>
+						<p id="username"></p>
+					</div>
+					<div class="user-stats">
+						<p><span id="followers"></span> followers</p>
+						<p><span id="following"></span> following</p>
+					</div>
+				</div>
+				<div class="user-details" id="userDetails">
+					<p id="bio"></p>
+					<p id="location"></p>
+					<p id="blog"></p>
+					<p id="twitter"></p>
+					<p id="github"></p>
+				</div>
+			</div>
+			<div class="repos">
+				<h2>Repositories</h2>
+				<ul id="repos"></ul>
+			</div>
+		</div>
+
+		<script src="script/userScript.js"></script>
+	</body>
+</html>

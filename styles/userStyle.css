@@ -1,0 +1,118 @@
+/* Reset Css */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Arial", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+	display: flex;
+	align-items: flex-start;
+}
+
+.user-info {
+	margin-right: 20px;
+	max-width: 200px;
+}
+
+#avatar {
+	max-width: 200px;
+	height: auto;
+	border-radius: 50%;
+	border: 3px solid #000; /* Add a white border for a GitHub-like look */
+}
+
+.user-name {
+	padding: 10px;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.user-stats {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.user-details {
+	margin-top: 20px;
+}
+
+.user-details p {
+	margin: 10px 0;
+	line-height: 1.5;
+}
+
+.user-details a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+.user-details a:hover {
+	text-decoration: underline;
+}
+
+.repos {
+	margin-top: 20px;
+}
+
+h2 {
+	color: #333;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+/* repo styles */
+.repos {
+	margin-top: 20px;
+}
+
+.repo {
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.repo h3 {
+	margin-bottom: 10px;
+}
+
+.repo p {
+	margin: 5px 0;
+}
+
+.repo-details p {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+.repo-topic {
+	padding: 4px;
+	border: 1px solid white;
+	background-color: #418ac9;
+	color: #fff;
+	border-radius: 5px;
+}
