@@ -93,6 +93,10 @@ const displayPagination = (totalRepos, perPage = 10) => {
 		const li = document.createElement("li");
 		li.textContent = i;
 		li.onclick = () => changePage(i);
+		if (i === currentPage) {
+			li.style.backgroundColor = "#418ac9";
+			li.style.color = "white";
+		}
 		paginationList.appendChild(li);
 	}
 };
@@ -101,6 +105,7 @@ const changePage = (page) => {
 	console.log("Page changed to", page);
 	if (page === currentPage) return;
 	currentPage = page;
+	displayPagination(curUser.public_repos, reposPerPage);
 	fetchUserRepos(curUser.login);
 };
 const updatePerPage = () => {
@@ -119,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		fetchUserDetails(username);
 		const title = document.getElementsByTagName("title")[0];
 		title.innerHTML = `${username} | GitHub Profile`;
+		const perPageSelect = document.getElementById("perPage");
+		perPageSelect.value = reposPerPage;
 	} else {
 		alert("Please enter a valid GitHub username.");
 		window.history.back();

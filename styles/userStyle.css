@@ -16,7 +16,7 @@ body {
 	max-width: 800px;
 	margin: 20px auto;
 	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -24,6 +24,9 @@ body {
 .user-profile {
 	display: flex;
 	align-items: flex-start;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 20px;
 }
 
 .user-info {
@@ -129,28 +132,11 @@ a {
 	margin-top: 20px;
 }
 
-#prev,
-#next {
-	padding: 8px 12px;
-	font-size: 14px;
-	cursor: pointer;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	background-color: #fff;
-	color: #333;
-}
-
-#prev:hover,
-#next:hover {
-	background-color: #f0f0f0;
-}
-
 ul#pages {
 	list-style: none;
 	display: flex;
 	gap: 2px;
 }
-
 ul#pages li {
 	cursor: pointer;
 	padding: 5px 8px;
@@ -162,6 +148,7 @@ ul#pages li {
 }
 
 ul#pages li:hover {
+	/* light shade curr value */
 	background-color: #f0f0f0;
 }
 
