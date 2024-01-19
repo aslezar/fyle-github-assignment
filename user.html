@@ -23,14 +23,24 @@
 				<div class="user-details" id="userDetails">
 					<p id="bio"></p>
 					<p id="location"></p>
-					<p id="blog"></p>
 					<p id="twitter"></p>
 					<p id="github"></p>
 				</div>
 			</div>
-			<div class="repos">
+			<div class="reposContainer">
 				<h2>Repositories</h2>
 				<ul id="repos"></ul>
+			</div>
+			<div id="pagination">
+				<button id="prev" onclick="prevPage()">Prev</button>
+				<ul id="pages"></ul>
+				<button id="next" onclick="nextPage()">Next</button>
+				<select name="perPage" id="perPage">
+					<option value="10" selected>10</option>
+					<option value="20">20</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
 			</div>
 		</div>
 
