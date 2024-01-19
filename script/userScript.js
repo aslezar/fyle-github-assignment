@@ -8,19 +8,22 @@ const fetchUserDetails = async (username) => {
 	//check if user exists
 	if (user.message === "Not Found") {
 		alert("User not found");
-		window.history.back();
+		return window.history.back();
 	}
 	curUser = user;
 	// console.log(user);
 	displayBasicUserDetails(user);
 	fetchUserRepos(username);
 	displayPagination(user.public_repos, reposPerPage);
+	showContainer();
 };
 const fetchUserRepos = async (username) => {
+	showLoader();
 	const url = `https://api.github.com/users/${username}/repos?per_page=${reposPerPage}&page=${currentPage}`;
 	const repos = await fetch(url).then((res) => res.json());
 	// console.log(repos);
 	displayRepos(repos);
+	hideLoader();
 };
 
 const displayBasicUserDetails = (user) => {
@@ -118,6 +121,19 @@ const updatePerPage = () => {
 	currentPage = 1;
 	displayPagination(curUser.public_repos, reposPerPage);
 	fetchUserRepos(curUser.login);
+};
+
+const showContainer = () => {
+	hideLoader();
+	document.getElementsByClassName("container")[0].style.display = "block";
+};
+
+const showLoader = () => {
+	document.getElementById("loader").style.display = "block";
+};
+
+const hideLoader = () => {
+	document.getElementById("loader").style.display = "none";
 };
 
 document.addEventListener("DOMContentLoaded", function () {
