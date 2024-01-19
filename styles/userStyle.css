@@ -160,3 +160,8 @@ select#perPage {
 	background-color: #fff;
 	color: #333;
 }
+@media (max-width: 767px) {
+	#avatar {
+		max-width: 90%;
+	}
+}

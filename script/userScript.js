@@ -11,7 +11,7 @@ const fetchUserDetails = async (username) => {
 		window.history.back();
 	}
 	curUser = user;
-	console.log(user);
+	// console.log(user);
 	displayBasicUserDetails(user);
 	fetchUserRepos(username);
 	displayPagination(user.public_repos, reposPerPage);
@@ -19,7 +19,7 @@ const fetchUserDetails = async (username) => {
 const fetchUserRepos = async (username) => {
 	const url = `https://api.github.com/users/${username}/repos?per_page=${reposPerPage}&page=${currentPage}`;
 	const repos = await fetch(url).then((res) => res.json());
-	console.log(repos);
+	// console.log(repos);
 	displayRepos(repos);
 };
 
@@ -58,6 +58,7 @@ const displayBasicUserDetails = (user) => {
 const displayRepos = (repos) => {
 	const reposContainer = document.getElementById("repos");
 	let reposHTML = "";
+	if (repos.length === 0) reposHTML = "<i>No repositories found</i>";
 	repos.forEach((repo) => {
 		reposHTML += `<div class="repo">
             <h3>${repo.name}</h3>
@@ -102,7 +103,7 @@ const displayPagination = (totalRepos, perPage = 10) => {
 };
 
 const changePage = (page) => {
-	console.log("Page changed to", page);
+	// console.log("Page changed to", page);
 	if (page === currentPage) return;
 	currentPage = page;
 	displayPagination(curUser.public_repos, reposPerPage);
@@ -110,8 +111,9 @@ const changePage = (page) => {
 };
 const updatePerPage = () => {
 	const perPageSelect = document.getElementById("perPage");
-	console.log(perPageSelect.value);
+	// console.log(perPageSelect.value);
 	reposPerPage = parseInt(perPageSelect.value, 10); // Parse the selected value as an integer
+	currentPage = 1;
 	displayPagination(curUser.public_repos, reposPerPage);
 	fetchUserRepos(curUser.login);
 };
