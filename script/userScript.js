@@ -61,7 +61,9 @@ const displayRepos = (repos) => {
 	if (repos.length === 0) reposHTML = "<i>No repositories found</i>";
 	repos.forEach((repo) => {
 		reposHTML += `<div class="repo">
-            <h3>${repo.name}</h3>
+			<h3><a href="${repo.html_url}" target="_blank">${
+			repo.name ? repo.name : "<i>Not Available</i>"
+		}</a></h3>
             <p>${
 							repo.description ? repo.description : "<i>No description</i>"
 						}</p>
