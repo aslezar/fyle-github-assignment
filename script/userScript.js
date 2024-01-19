@@ -5,12 +5,13 @@ let currentPage = 1;
 const fetchUserDetails = async (username) => {
 	const url = `https://api.github.com/users/${username}`;
 	const user = await fetch(url).then((res) => res.json());
-	console.log(user);
 	//check if user exists
 	if (user.message === "Not Found") {
 		alert("User not found");
 		window.history.back();
 	}
+	curUser = user;
+	console.log(user);
 	displayBasicUserDetails(user);
 	fetchUserRepos(username);
 	displayPagination(user.public_repos, reposPerPage);
@@ -31,7 +32,6 @@ const displayBasicUserDetails = (user) => {
 	const following = document.getElementById("following");
 	const repos = document.getElementById("repos");
 	const location = document.getElementById("location");
-	const blog = document.getElementById("blog");
 	const twitter = document.getElementById("twitter");
 	const github = document.getElementById("github");
 
@@ -79,7 +79,7 @@ const displayRepos = (repos) => {
 	});
 	reposContainer.innerHTML = reposHTML;
 };
-const displayPagination = (totalRepos, perPage) => {
+const displayPagination = (totalRepos, perPage = 10) => {
 	const paginationList = document.getElementById("pages");
 	if (!paginationList) {
 		console.error("Pagination container not found.");
@@ -101,7 +101,14 @@ const changePage = (page) => {
 	console.log("Page changed to", page);
 	if (page === currentPage) return;
 	currentPage = page;
-	fetchUserRepos(curUser);
+	fetchUserRepos(curUser.login);
+};
+const updatePerPage = () => {
+	const perPageSelect = document.getElementById("perPage");
+	console.log(perPageSelect.value);
+	reposPerPage = parseInt(perPageSelect.value, 10); // Parse the selected value as an integer
+	displayPagination(curUser.public_repos, reposPerPage);
+	fetchUserRepos(curUser.login);
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -109,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const urlParams = new URLSearchParams(window.location.search);
 	const username = urlParams.get("username");
 	if (username) {
-		curUser = username;
 		fetchUserDetails(username);
 		const title = document.getElementsByTagName("title")[0];
 		title.innerHTML = `${username} | GitHub Profile`;

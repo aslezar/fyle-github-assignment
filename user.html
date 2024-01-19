@@ -32,10 +32,8 @@
 				<ul id="repos"></ul>
 			</div>
 			<div id="pagination">
-				<button id="prev" onclick="prevPage()">Prev</button>
 				<ul id="pages"></ul>
-				<button id="next" onclick="nextPage()">Next</button>
-				<select name="perPage" id="perPage">
+				<select name="perPage" id="perPage" onchange="updatePerPage()">
 					<option value="10" selected>10</option>
 					<option value="20">20</option>
 					<option value="50">50</option>
