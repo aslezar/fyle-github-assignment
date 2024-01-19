@@ -10,9 +10,9 @@ const fetchUserDetails = async (username) => {
 		alert("User not found");
 		return window.history.back();
 	}
-	console.log(user.message);
+	// console.log(user.message);
 	//if user message start with API rate limit exceeded
-	if (user.message.startsWith("API rate limit exceeded")) {
+	if (user?.message && user.message.startsWith("API rate limit exceeded")) {
 		alert("API rate limit exceeded.");
 		return window.history.back();
 	}
@@ -27,7 +27,7 @@ const fetchUserRepos = async (username) => {
 	showLoader();
 	const url = `https://api.github.com/users/${username}/repos?per_page=${reposPerPage}&page=${currentPage}`;
 	const repos = await fetch(url).then((res) => res.json());
-	if (repos.message.startsWith("API rate limit exceeded")) {
+	if (repos?.message && repos.message.startsWith("API rate limit exceeded")) {
 		alert("API rate limit exceeded.");
 		return window.history.back();
 	}
