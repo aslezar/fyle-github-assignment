@@ -12,6 +12,7 @@ This web application allows users to view repositories of a GitHub user. It prov
 - Display user details, including basic information and repositories.
 - Paginate through repositories with next and previous buttons.
 - Select the number of repositories to display per page.
+- Include a dynamic loader to indicate the API request status, ensuring a seamless user experience.
 
 ## Getting Started
 
